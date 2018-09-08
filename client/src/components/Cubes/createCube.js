@@ -1,18 +1,6 @@
 import uid from "../../utils/uniqueId";
 import counter from "../../utils/counter";
-
-const cubePosition = n => {
-  switch (n) {
-    case 0:
-      return "front";
-    case 1:
-      return "side";
-    case 2:
-      return "top";
-    default:
-      return false;
-  }
-};
+import cubePosition from "./cubePosition";
 
 /*
 You can pass a map with coordinates to choose the display for a side
@@ -27,7 +15,7 @@ You can pass a map with coordinates to choose the display for a side
 }]
 */
 
-const createCube = (map = [], size = 4) => {
+const createCube = (cubeMap = [], size = 4) => {
   const colCounter = counter();
   return [...new Array(size)].map(() => {
     const rowCounter = counter();
@@ -50,12 +38,23 @@ const createCube = (map = [], size = 4) => {
               sides: [...new Array(3)].map(() => {
                 const side = sideCounter();
                 const position = cubePosition(side);
+                const coords = { col, row, cube, side };
+                const style = applyStyles(
+                  coords,
+                  cubeMap.filter(
+                    entry =>
+                      col === entry.coords.col ||
+                      row === entry.coords.row ||
+                      cube === entry.coords.cube ||
+                      side === entry.coords.side
+                  )
+                );
                 return {
                   id: uid(),
                   side,
                   position,
-                  style: false,
-                  coords: { col, row, cube, side }
+                  coords,
+                  style
                 };
               })
             };
@@ -64,6 +63,20 @@ const createCube = (map = [], size = 4) => {
       })
     };
   });
+};
+
+const applyStyles = (sideCoords, cmap) => {
+  let sideStyle = false;
+  if (cmap.length) {
+    cmap.map(({ coords, style }) => {
+      const crcs = Object.keys(coords);
+      if (crcs.every(point => sideCoords[point] === coords[point])) {
+        sideStyle = style;
+      }
+      return sideStyle;
+    });
+  }
+  return sideStyle;
 };
 
 export default createCube;

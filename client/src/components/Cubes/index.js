@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import React from "react";
 import createCube from "./createCube";
 
-const Cubes = ({ map }) => {
-  const theCube = createCube(map);
+const Cubes = ({ size, cubeMap }) => {
+  const theCube = createCube(cubeMap, size);
   return (
     <div className="cubes">
       {theCube.map(({ col, rows, ...column }) => (
@@ -19,12 +19,18 @@ const Cubes = ({ map }) => {
                   key={Cube.id}
                   className={`cube cube__col-${col}-row-${row}-cube-${cube}`}
                 >
-                  {sides.map(({ side, position, style, coords, ...Side }) => (
+                  {sides.map(({ side, position, style, ...Side }) => (
                     <div
                       key={Side.id}
                       className={`
 face ${position} cube__col-${col}-row-${row}-cube-${cube}-side-${side}
+${style.type === "transparent" ? "face--transparent" : ""}
                       `}
+                      style={{
+                        background: style.type === "color" ? style.content : "",
+                        backgroundImage:
+                          style.type === "img" ? style.content : ""
+                      }}
                     />
                   ))}
                 </div>
@@ -38,17 +44,19 @@ face ${position} cube__col-${col}-row-${row}-cube-${cube}-side-${side}
 };
 
 Cubes.defaultProps = {
-  map: []
+  size: 4,
+  cubeMap: []
 };
 
 Cubes.propTypes = {
+  size: PropTypes.number,
   map: PropTypes.arrayOf(
     PropTypes.shape({
       coords: PropTypes.shape({
         col: PropTypes.number.isRequired,
-        row: PropTypes.number.isRequired,
-        cube: PropTypes.number.isRequired,
-        side: PropTypes.number.isRequired
+        row: PropTypes.number,
+        cube: PropTypes.number,
+        side: PropTypes.number
       }).isRequired,
       style: PropTypes.shape({
         type: PropTypes.oneOf(["transparent", "color", "img"]),

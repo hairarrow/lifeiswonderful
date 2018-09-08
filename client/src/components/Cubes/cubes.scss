@@ -77,5 +77,9 @@
       transform: rotate(90deg) skewX(-30deg) scaleY(0.864) translate(68px, -131px);
       background: map-get($colors, dark-blue);
     }
+
+    &.face--transparent {
+      background: transparent;
+    }
   }
 }
