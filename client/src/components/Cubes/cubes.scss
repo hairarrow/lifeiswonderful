@@ -1,0 +1,83 @@
+@import '../../styles/_colors.scss';
+
+.cubes {
+  position: fixed;
+  top: 200px;
+  left: 200px;
+
+  &__column {
+    position: absolute;
+
+    &:first-child { z-index: 1; }
+
+    $tx: 86px;
+    $ty: 49px;
+    @for $i from 0 through 2 {
+      $n: $i + 2;
+      &:nth-child(#{$n}) {
+        z-index: $n;
+        transform: translate($tx + $tx * $i, $ty + $ty * $i);
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    transform-origin: 0 0;
+
+    $b: 4;
+    $ty: -74px;
+    &:first-child { z-index: $b; }
+    @for $i from 0 through 2 {
+      &:nth-child(#{$i + 2}) {
+        z-index: $b - ($i + 1);
+        transform: translateY($ty + $ty * $i);
+      }
+    }
+  }
+}
+
+.cube {
+  $w: 172px;
+  $h: 172px;
+  width: $w;
+  height: $h;
+  position: relative;
+
+  $b: 4;
+  $tx: -87px;
+  $ty: -48px;
+  &:first-child { z-index: $b; }
+  @for $i from 0 through 2 {
+    &:nth-child(#{$i + 2}) {
+      z-index: $b - ($i + 1);
+      transform: translate($tx + $tx * $i, $ty + $ty * $i);
+    }
+  }
+
+  .face {
+    transform-origin: 0 0;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+
+    // &--
+
+    &.front {
+      transform: rotate(-30deg) skewX(-30deg) translate(130px, 172px) scaleY(0.864);
+      background: map-get($colors, darkest-blue);
+    }
+
+    &.top {
+      transform: rotate(210deg) skew(-30deg) translate(-200px, -60px) scaleY(0.864);
+      background: map-get($colors, blue);
+    }
+
+    &.side {
+      transform: rotate(90deg) skewX(-30deg) scaleY(0.864) translate(68px, -131px);
+      background: map-get($colors, dark-blue);
+    }
+  }
+}
