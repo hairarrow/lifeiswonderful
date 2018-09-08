@@ -17,3 +17,106 @@
 .App-title {
   font-size: 1.5em;
 }
+
+.cubes {
+  position: fixed;
+  top: 200px;
+  left: 200px;
+}
+
+.cubes__column {
+  position: absolute;
+}
+
+.cubes__column:first-child {
+  z-index: 1;
+}
+
+.cubes__column:nth-child(2) {
+  z-index: 2;
+  transform: translate(86px, 49px);
+}
+
+.cubes__column:nth-child(3) {
+  z-index: 3;
+  transform: translate(172px, 98px);
+}
+
+.cubes__column:nth-child(4) {
+  z-index: 4;
+  transform: translate(258px, 147px);
+}
+
+.cubes__row {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  transform-origin: 0 0;
+}
+
+.cubes__row:first-child {
+  z-index: 4;
+}
+
+.cubes__row:nth-child(2) {
+  z-index: 3;
+  transform: translateY(-74px);
+}
+
+.cubes__row:nth-child(3) {
+  z-index: 2;
+  transform: translateY(-148px);
+}
+
+.cubes__row:nth-child(4) {
+  z-index: 1;
+  transform: translateY(-222px);
+}
+
+.cube {
+  width: 172px;
+  height: 172px;
+  position: relative;
+}
+
+.cube:first-child {
+  z-index: 4;
+}
+
+.cube:nth-child(2) {
+  z-index: 3;
+  transform: translate(-87px, -49px);
+}
+
+.cube:nth-child(3) {
+  z-index: 2;
+  transform: translate(-174px, -98px);
+}
+
+.cube:nth-child(4) {
+  z-index: 1;
+  transform: translate(-261px, -147px);
+}
+
+
+.face {
+  transform-origin: 0 0;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+
+.face.front {
+  background: blue;
+  transform: rotate(-30deg) skewX(-30deg) translate(130px, 172px) scaleY(0.864);
+}
+
+.face.top {
+  background: red;
+  transform: rotate(210deg) skew(-30deg) translate(-200px, -60px) scaleY(0.864);
+}
+
+.face.side {
+  background: green;
+  transform: rotate(90deg) skewX(-30deg) scaleY(0.864) translate(68px, -131px);
+}
