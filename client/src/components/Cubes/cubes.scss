@@ -63,8 +63,6 @@
     width: 100px;
     height: 100px;
 
-    // &--
-
     &.front {
       transform: rotate(-30deg) skewX(-30deg) translate(130px, 172px) scaleY(0.864);
       background: map-get($colors, darkest-blue);
