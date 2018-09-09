@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import React from "react";
 import createCube from "./createCube";
 
-const Cubes = ({ size, cubeMap }) => {
+const Cubes = ({ size, cubeMap, className, ...props }) => {
   const theCube = createCube(cubeMap, size);
   return (
-    <div className="cubes">
+    <div className={`cubes ${className ? className : ""}`} {...props}>
       {theCube.map(({ col, rows, ...column }) => (
         <div key={column.id} className={`cubes__column cubes__col-${col}`}>
           {rows.map(({ row, cubes, ...Row }) => (
@@ -25,13 +25,18 @@ const Cubes = ({ size, cubeMap }) => {
                       className={`
 face ${position} cube__col-${col}-row-${row}-cube-${cube}-side-${side}
 ${style.type === "transparent" ? "face--transparent" : ""}
+${style.type === "img" ? "face--img" : ""}
                       `}
                       style={{
-                        background: style.type === "color" ? style.content : "",
-                        backgroundImage:
-                          style.type === "img" ? style.content : ""
+                        background: style.type === "color" ? style.content : ""
                       }}
-                    />
+                    >
+                      {style.type === "img" && (
+                        <div className="face__image-container">
+                          <img className="face__image" src={style.content} />
+                        </div>
+                      )}
+                    </div>
                   ))}
                 </div>
               ))}

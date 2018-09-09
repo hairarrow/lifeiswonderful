@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className="App-title">Hello World!</h1>
-        <Cubes cubeMap={bigSquareMap} />
+        <Cubes className="cubes--big-cube" cubeMap={bigSquareMap} />
       </div>
     );
   }

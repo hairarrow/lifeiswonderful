@@ -1,3 +1,6 @@
+import GUY1 from "../../img/guy1.png";
+import GIRL1 from "../../img/girl1.png";
+
 const bigSquareMap = [
   {
     coords: {
@@ -177,8 +180,8 @@ const bigSquareMap = [
       side: 0
     },
     style: {
-      type: "color",
-      content: "red"
+      type: "img",
+      content: GUY1
     }
   },
   {
@@ -189,8 +192,8 @@ const bigSquareMap = [
       side: 2
     },
     style: {
-      type: "color",
-      content: "red"
+      type: "img",
+      content: GIRL1
     }
   }
 ];
