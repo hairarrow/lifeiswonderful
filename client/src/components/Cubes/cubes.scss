@@ -2,8 +2,8 @@
 
 .cubes {
   position: fixed;
-  top: 200px;
-  left: 200px;
+  bottom: 358px;
+  left: -170px;
 
   &__column {
     position: absolute;
@@ -79,7 +79,12 @@
     }
 
     &.face--transparent {
-      background: transparent;
+      opacity: 1;
+      animation: disappear 1000ms ease 400ms forwards;
     }
   }
+}
+
+@keyframes disappear {
+  to { opacity: 0}
 }

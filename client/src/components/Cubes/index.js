@@ -50,16 +50,25 @@ Cubes.defaultProps = {
 
 Cubes.propTypes = {
   size: PropTypes.number,
-  map: PropTypes.arrayOf(
+  cubeMap: PropTypes.arrayOf(
     PropTypes.shape({
       coords: PropTypes.shape({
         col: PropTypes.number.isRequired,
-        row: PropTypes.number,
-        cube: PropTypes.number,
-        side: PropTypes.number
+        row: PropTypes.oneOfType([
+          PropTypes.number,
+          PropTypes.arrayOf(PropTypes.number)
+        ]),
+        cube: PropTypes.oneOfType([
+          PropTypes.number,
+          PropTypes.arrayOf(PropTypes.number)
+        ]),
+        side: PropTypes.oneOfType([
+          PropTypes.number,
+          PropTypes.arrayOf(PropTypes.number)
+        ])
       }).isRequired,
       style: PropTypes.shape({
-        type: PropTypes.oneOf(["transparent", "color", "img"]),
+        type: PropTypes.oneOf(["transparent", "color", "img", "default"]),
         content: PropTypes.string
       }).isRequired
     })

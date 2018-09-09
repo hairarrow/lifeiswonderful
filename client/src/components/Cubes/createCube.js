@@ -69,10 +69,15 @@ const applyStyles = (sideCoords, cmap) => {
   let sideStyle = false;
   if (cmap.length) {
     cmap.map(({ coords, style }) => {
-      const crcs = Object.keys(coords);
-      if (crcs.every(point => sideCoords[point] === coords[point])) {
+      if (
+        Object.keys(coords).every(
+          coord =>
+            coords[coord].length
+              ? coords[coord].includes(sideCoords[coord])
+              : coords[coord] === sideCoords[coord]
+        )
+      )
         sideStyle = style;
-      }
       return sideStyle;
     });
   }
