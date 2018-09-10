@@ -1,5 +1,6 @@
 import "./homepage.css";
 import React from "react";
+import { Link } from "react-router-dom";
 import Header from "../Header";
 import ContactCard from "../ContactCard";
 import Cubes from "./Cubes";
@@ -19,9 +20,9 @@ const Homepage = () => (
             Deeply integrated with your business to protect your employees and
             provide you peace of mind
           </h2>
-          <button type="button" className="hero__button">
+          <Link to="/info" className="hero__button">
             See How It Works
-          </button>
+          </Link>
         </div>
         <div className="hero__content-column">
           <ContactCard

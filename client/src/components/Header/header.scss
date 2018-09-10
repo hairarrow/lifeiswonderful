@@ -19,5 +19,9 @@
     font-size: 18px;
     letter-spacing: 1px;
     color: map-get($colors, blue);
+
+    &--light {
+      color: map-get($colors, white);
+    }
   }
 }

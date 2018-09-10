@@ -27,3 +27,5 @@ const cmap = [
 
 - write a utility to fetch all assets and pass them to the main component
 - optimize animation orchestration with onAnimationEnd
+- check if assets loaded and speed up splash screen
+- refactor animations on routes

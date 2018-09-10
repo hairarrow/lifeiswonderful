@@ -1,16 +1,32 @@
 import "./header.css";
-import Logo from "../Logo";
+import PropTypes from "prop-types";
 import React from "react";
+import { Link } from "react-router-dom";
+import Logo from "../Logo";
 
-const Header = () => (
+const Header = ({ light }) => (
   <nav className="header">
-    <div className="header__brand">
+    <Link to="/" className="header__brand">
       <div className="header__brand-logo">
-        <Logo />
+        <Logo light={light} />
       </div>
-      <h1 className="header__brand-title">Metacard</h1>
-    </div>
+      <h1
+        className={`header__brand-title ${
+          light ? "header__brand-title--light" : ""
+        }`}
+      >
+        Metacard
+      </h1>
+    </Link>
   </nav>
 );
+
+Header.defaultProps = {
+  light: false
+};
+
+Header.propTypes = {
+  light: PropTypes.bool
+};
 
 export default Header;

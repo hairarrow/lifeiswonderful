@@ -9,6 +9,10 @@
   font-family: "Open Sans", sans-serif;
 }
 
+a {
+  text-decoration: none;
+} // getting rid of all <Link />
+
 body {
   background: map-get($colors, white);
 }

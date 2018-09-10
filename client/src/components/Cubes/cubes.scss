@@ -8,12 +8,14 @@ $animation-delay: 800ms;
   position: fixed;
   pointer-events: none;
 
+  &--info-big-cube,
   &--home-big-cube {
     bottom: 238px;
     left: -130px;
     transform: scale(0.72);
   }
 
+  &--info-small-cube,
   &--home-small-cube {
     left: 30%;
     top: -80px;
@@ -28,6 +30,7 @@ $animation-delay: 800ms;
     }
   }
 
+  &--info-smallest-cube,
   &--home-smallest-cube {
     left: -30px;
     top: 120px;
@@ -39,6 +42,7 @@ $animation-delay: 800ms;
     }
   }
 
+  &--info-bg-cube-left,
   &--home-bg-cube-left {
     left: -315px;
     top: -135px;
@@ -55,6 +59,7 @@ $animation-delay: 800ms;
     }
   }
 
+  &--info-bg-cube-right,
   &--home-bg-cube-right {
     top: -580px;
     right: 390px;
@@ -102,6 +107,11 @@ $animation-delay: 800ms;
 
   &--home-big-cube {
     animation: showCubes 1200ms ease-in-out 3000ms forwards;
+  }
+
+  &--info-bg-cube-right-bottom {
+    right: 240px;
+    bottom: 400px;
   }
 
   &__column {

@@ -1,0 +1,81 @@
+@import "../../styles/_colors.scss";
+
+.page--info {
+  min-height: 100vh;
+  background: map-get($colors, dark-blue);
+}
+
+.info {
+  display: flex;
+
+  &__content {
+    padding-top: 30px;
+    color: map-get($colors, white);
+  }
+
+  &__title {
+    font-size: 60px;
+  }
+}
+
+.info-content {
+  display: flex;
+  max-height: 160px;
+  margin-top: 20px;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 300ms ease;
+
+  &:hover {
+    background: map-get($colors, white);
+  }
+
+  &:hover &__text {
+    color: map-get($colors, dark-blue);
+  }
+
+  &:hover &__image-container {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &:hover &__content-number {
+    color: map-get($colors, fuchsia);
+  }
+
+  &:hover &__image {
+    transform: scale(0.94) translateX(-10px);
+  }
+
+  &__image-container {
+    min-width: 140px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+
+  &__image {
+    transition: all 300ms ease;
+  }
+
+  &__text-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__content-number {
+    font-size: 60px;
+    font-weight: bolder;
+    transform: translateX(-50%);
+    transition: all 300ms ease;
+  }
+
+  &__text {
+    font-size: 18px;
+    padding: 30px;
+    opacity: 0.7;
+  }
+}
