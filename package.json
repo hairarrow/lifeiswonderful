@@ -10,7 +10,7 @@
     "start:dev": "concurrently \"yarn start\" \"yarn start:client\"",
     "test": "jest",
     "test:watch": "jest --watch",
-    "heroku-postbuild": "cd client && yarn && yarn build"
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
