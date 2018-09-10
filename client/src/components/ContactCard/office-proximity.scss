@@ -18,6 +18,7 @@
 
   &--qr-show &__qr-container {
     transform: translateY(72%) translateX(50px) scale(0.9);
+    transition-duration: 1600ms;
   }
 
   &--qr-expanded {
@@ -82,8 +83,30 @@
     cursor: pointer;
     transition: all 400ms ease;
 
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      box-shadow: 0 0 0 1px rgba($c, 0.2), 0 0 4px 2px rgba($c, 0.5);
+      border-radius: inherit;
+      opacity: 0;
+      transition: all 400ms ease;
+    }
+
     &:hover {
       color: lighten($c, 20);
+    }
+
+    &:hover:after,
+    &:focus:after {
+      opacity: 1;
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 

@@ -1,0 +1,17 @@
+// SVG LOGO STYLES
+
+.mc-logo {
+  position: relative;
+  width: 46px;
+  height: 46px;
+
+  &__border,
+  &__arrow-stem,
+  &__arrow-point {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+}
