@@ -1,5 +1,8 @@
 # A simple Express + React App
 
+Heroku deploy: https://lifeiswonderful.herokuapp.com/
+
+
 ## Setup
 
 ```
