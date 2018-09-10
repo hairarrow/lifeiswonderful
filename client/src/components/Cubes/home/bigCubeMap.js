@@ -1,5 +1,5 @@
-import GUY1 from "../../img/guy1.png";
-import GIRL1 from "../../img/girl1.png";
+import GUY1 from "./img/guy1.png";
+import GIRL1 from "./img/girl1.png";
 
 const bigSquareMap = [
   {

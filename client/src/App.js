@@ -1,16 +1,9 @@
 import React, { Component } from "react";
-import "./App.css";
-import Cubes from "./components/Cubes";
-import bigSquareMap from "./components/Cubes/bigSquareMap";
+import Homepage from "./components/Homepage";
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <h1 className="App-title">Hello World!</h1>
-        <Cubes className="cubes--big-cube" cubeMap={bigSquareMap} />
-      </div>
-    );
+    return <Homepage />;
   }
 }
 

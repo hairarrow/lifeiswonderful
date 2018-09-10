@@ -26,6 +26,7 @@ const Cubes = ({ size, cubeMap, className, ...props }) => {
 face ${position} cube__col-${col}-row-${row}-cube-${cube}-side-${side}
 ${style.type === "transparent" ? "face--transparent" : ""}
 ${style.type === "img" ? "face--img" : ""}
+${style.type === "scale" ? `face--scale-${style.content}` : ""}
                       `}
                       style={{
                         background: style.type === "color" ? style.content : ""
@@ -33,7 +34,11 @@ ${style.type === "img" ? "face--img" : ""}
                     >
                       {style.type === "img" && (
                         <div className="face__image-container">
-                          <img className="face__image" src={style.content} />
+                          <img
+                            className="face__image"
+                            alt="I wish I knew this person's name"
+                            src={style.content}
+                          />
                         </div>
                       )}
                     </div>
@@ -73,7 +78,13 @@ Cubes.propTypes = {
         ])
       }).isRequired,
       style: PropTypes.shape({
-        type: PropTypes.oneOf(["transparent", "color", "img", "default"]),
+        type: PropTypes.oneOf([
+          "transparent",
+          "color",
+          "img",
+          "default",
+          "scale"
+        ]),
         content: PropTypes.string
       }).isRequired
     })
