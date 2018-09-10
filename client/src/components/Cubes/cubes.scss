@@ -80,6 +80,30 @@ $animation-delay: 800ms;
     }
   }
 
+  @keyframes showCubes {
+    to {
+      opacity: 1;
+    }
+  }
+
+  &--home-big-cube,
+  &--home-smallest-cube,
+  &--home-small-cube {
+    opacity: 0;
+  }
+
+  &--home-smallest-cube {
+    animation: showCubes 400ms ease-in-out 3300ms forwards;
+  }
+
+  &--home-small-cube {
+    animation: showCubes 1600ms ease-in-out 3400ms forwards;
+  }
+
+  &--home-big-cube {
+    animation: showCubes 1200ms ease-in-out 3000ms forwards;
+  }
+
   &__column {
     position: absolute;
 

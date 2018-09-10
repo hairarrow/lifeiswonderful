@@ -1,0 +1,44 @@
+@import "../../styles/_colors.scss";
+
+@keyframes exit-splash {
+  to {
+    opacity: 0;
+  }
+}
+
+.splash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: map-get($colors, white);
+  animation: exit-splash 500ms ease 3000ms forwards;
+  z-index: 1000000;
+  pointer-events: none;
+
+  @keyframes enter {
+    to {
+      transform: scale(5);
+      opacity: 1;
+    }
+  }
+
+  @keyframes exit {
+    0% {
+      transform: scale(5) translateY(0);
+    }
+    100% {
+      transform: scale(5) translateY(-300%);
+    }
+  }
+
+  .mc-logo {
+    opacity: 0.2;
+    transform: scale(-1);
+    animation: enter 2000ms ease forwards, exit 600ms ease 2800ms forwards;
+  }
+}

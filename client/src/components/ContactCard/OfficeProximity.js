@@ -10,7 +10,7 @@ class OfficeProximity extends Component {
     this.updateInterval = 500;
 
     this.state = {
-      distance: 0.08,
+      distance: 0.15,
       showQr: false,
       qrExpanded: false
     };
@@ -19,6 +19,12 @@ class OfficeProximity extends Component {
   componentDidMount() {
     let intervalId = setInterval(this.updateDistance, this.updateInterval);
     this.setState({ intervalId });
+  }
+
+  componentWillUnmount() {
+    const { intervalId, leaveTimeout } = this.state;
+    clearInterval(intervalId);
+    clearInterval(leaveTimeout);
   }
 
   updateDistance = () => {
