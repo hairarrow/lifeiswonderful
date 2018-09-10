@@ -38,13 +38,13 @@
       transform: translateY(8px);
     }
     33.3% {
-      transform: translateY(-6px);
+      transform: translateY(-4px);
     }
     49.95% {
-      transform: translateY(4px);
+      transform: translateY(2px);
     }
     66.6% {
-      transform: translateY(-2px);
+      transform: translateY(0px);
     }
     83.25% {
       transform: translateY(1px);
@@ -75,8 +75,30 @@
     cursor: pointer;
     transform: perspective(1px) translateZ(0);
 
+    &:focus {
+      outline: none;
+    }
+
     &:hover {
-      animation: wobble 1000ms ease-in-out 1;
+      animation: wobble 720ms ease-in-out 1;
+    }
+
+    &:hover:after,
+    &:focus:after {
+      opacity: 1;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      box-shadow: 0 0 0 1px rgba($c, 0.2), 0 0 4px 2px rgba($c, 0.5);
+      border-radius: inherit;
+      opacity: 0;
+      transition: all 400ms ease;
     }
   }
 }
