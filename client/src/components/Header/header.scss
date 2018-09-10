@@ -3,7 +3,7 @@
 .header {
   height: 66px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 
   &__brand {
     display: flex;
@@ -12,8 +12,6 @@
 
   &__brand-logo {
     margin-right: 10px;
-    // transform: scale(4);
-    transform-origin: top left;
   }
 
   &__brand-title {

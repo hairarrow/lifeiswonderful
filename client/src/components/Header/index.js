@@ -5,7 +5,9 @@ import React from "react";
 const Header = () => (
   <nav className="header">
     <div className="header__brand">
-      <Logo />
+      <div className="header__brand-logo">
+        <Logo />
+      </div>
       <h1 className="header__brand-title">Metacard</h1>
     </div>
   </nav>
