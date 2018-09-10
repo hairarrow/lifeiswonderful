@@ -14,11 +14,11 @@ const Homepage = () => (
       <section className="hero">
         <div className="hero__main-column">
           <h1 className="hero__title">
-            Simple and secure digital solution for employee badges.
+            Simple and secure digital solution for employee badges
           </h1>
           <h2 className="hero__subtitle">
-            Deeply integrated with your business to provide you security and
-            peace of mind
+            Deeply integrated with your business to protect your employees and
+            provide you peace of mind
           </h2>
           <button type="button" className="hero__button">
             See How It Works

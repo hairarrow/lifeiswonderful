@@ -1,7 +1,7 @@
 import "./contact-card.css";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import OfficeProximity from "./officeProximity";
+import OfficeProximity from "./OfficeProximity";
 
 class ContactCard extends Component {
   constructor(props) {
@@ -86,6 +86,7 @@ class ContactCard extends Component {
         >
           <div className="contact-card__image-container">
             <img className="contact-card__image" alt={name} src={img} />
+            <OfficeProximity />
           </div>
           <div className="contact-card__content">
             <p className="contact-card__meta contact-card__meta--name">

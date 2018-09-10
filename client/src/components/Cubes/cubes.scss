@@ -1,4 +1,4 @@
-@import '../../styles/_colors.scss';
+@import "../../styles/_colors.scss";
 
 $animation-length: 800ms;
 $animation-easing: ease;
@@ -19,15 +19,8 @@ $animation-delay: 800ms;
     top: -80px;
     transform: scale(0.88);
 
-    @keyframes tror {
-      to { transform-origin: 80% -58%; }
-    }
-
     .cube .face.front.face--scale-small {
-       transform-origin: 0 0;
-      animation:
-        tror $animation-length $animation-easing $animation-delay forwards,
-        cubeScale ($animation-length) $animation-easing $animation-delay forwards;
+      transform-origin: 80% -58%;
     }
 
     .cube__col-1-row-1-cube-1-side-1 .face__image {
@@ -52,7 +45,9 @@ $animation-delay: 800ms;
     transform: scale(2.8);
 
     .cube__col-0-row-0-cube-0-side-1,
-    .cube__col-0-row-0-cube-0-side-2 { opacity: 0; }
+    .cube__col-0-row-0-cube-0-side-2 {
+      opacity: 0;
+    }
 
     .cube .face.front.cube__col-0-row-0-cube-0-side-0 {
       background: map-get($colors, lightest-blue);
@@ -72,7 +67,7 @@ $animation-delay: 800ms;
     transform: scale(4);
 
     .cube .face.front.cube__col-1-row-0-cube-1-side-0 {
-      background: map-get($colors, lightest-blue)
+      background: map-get($colors, lightest-blue);
     }
 
     .cube .face.top.cube__col-1-row-1-cube-0-side-2 {
@@ -88,7 +83,9 @@ $animation-delay: 800ms;
   &__column {
     position: absolute;
 
-    &:first-child { z-index: 1; }
+    &:first-child {
+      z-index: 1;
+    }
 
     $tx: 86px;
     $ty: 49px;
@@ -109,7 +106,9 @@ $animation-delay: 800ms;
 
     $b: 4;
     $ty: -74px;
-    &:first-child { z-index: $b; }
+    &:first-child {
+      z-index: $b;
+    }
     @for $i from 0 through 2 {
       &:nth-child(#{$i + 2}) {
         z-index: $b - ($i + 1);
@@ -129,7 +128,9 @@ $animation-delay: 800ms;
   $b: 4;
   $tx: -87px;
   $ty: -48px;
-  &:first-child { z-index: $b; }
+  &:first-child {
+    z-index: $b;
+  }
   @for $i from 0 through 2 {
     &:nth-child(#{$i + 2}) {
       z-index: $b - ($i + 1);
@@ -164,14 +165,8 @@ $animation-delay: 800ms;
         transform: scaleY(1 / $sc) skewX($sk) rotate($r);
       }
 
-      @keyframes cubeScale {
-        to {
-          transform: rotate(-$r) skewX(-$sk) translate(130px, 172px) scale(0.2);
-        }
-      }
-
       &.face--scale-small {
-        animation: cubeScale $animation-length $animation-easing $animation-delay forwards;
+        transform: rotate(-$r) skewX(-$sk) translate(130px, 172px) scale(0.2);
       }
     }
 
@@ -217,5 +212,7 @@ $animation-delay: 800ms;
 }
 
 @keyframes disappear {
-  to { opacity: 0}
+  to {
+    opacity: 0;
+  }
 }
