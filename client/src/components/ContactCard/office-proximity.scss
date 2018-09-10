@@ -1,3 +1,5 @@
+@import "../../styles/_colors.scss";
+
 .office-proximity {
   position: absolute;
   top: 0;
@@ -69,7 +71,7 @@
     }
   }
 
-  $c: #e83267;
+  $c: map-get($colors, fuchsia);
   &__enter-button {
     font-weight: bolder;
     color: $c;
