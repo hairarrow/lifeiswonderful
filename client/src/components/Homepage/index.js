@@ -1,5 +1,6 @@
 import "./homepage.css";
 import React from "react";
+import Header from "../Header";
 import ContactCard from "../ContactCard";
 import Cubes from "./Cubes";
 import GIRL3 from "./girl3.png";
@@ -8,9 +9,7 @@ const Homepage = () => (
   <div className="page">
     <Cubes />
     <div className="page-container">
-      <nav className="topbar" style={{ height: 66 }}>
-        <h4 className="topbar__brand">METACARD</h4>
-      </nav>
+      <Header />
       <section className="hero">
         <div className="hero__main-column">
           <h1 className="hero__title">

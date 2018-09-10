@@ -1,0 +1,23 @@
+@import "../../styles/_colors";
+
+.header {
+  height: 66px;
+  display: flex;
+  align-items: center;
+
+  &__brand {
+    display: flex;
+    align-items: center;
+  }
+
+  &__brand-logo {
+    margin-right: 10px;
+  }
+
+  &__brand-title {
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: map-get($colors, blue);
+  }
+}
